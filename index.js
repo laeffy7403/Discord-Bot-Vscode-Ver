@@ -34,8 +34,7 @@ client.on("messageCreate", message => {
 
   const msgContent = message.content.toLowerCase();
   const botMsg = `\n\n**(I am a bot, and this action was performed automatically. Please contact ${creator.tag} the moderators of this sub if you have any questions or concerns.)**`;
-
-
+  
   // Help command [display available commands]
   if (msgContent.includes("help")) {
     message.channel.send(" ``` You can trigger them by texting normally in the chat. ```");
@@ -78,7 +77,7 @@ client.on("messageCreate", message => {
     message.channel.send("every girl has a dick. it's a fact. the problemis that it grows every month so long that they have to cut it off to not make usual men insecure about it . So basically that's what we call `period`. Also every girl has a little grave nearby her house where they keep rip dicks. Dicks that died in agony og being cutting off. This world is so sick. Poor dicks. So i offer you to join our STD-club - `Save The Dicks`. We stand with dicks 👩  😔 . Do no let dicks die. Share this post to let people know the truth.. " + botMsg);
   }
 
-  var keyGroupG = ["shit", "poop"];
+  var keyGroupG = ["shit", "poop", "toilet"];
   if (keyGroupG.some(trigger => msgContent.includes(trigger))) {
     message.channel.send("I hate taking shits. Taking shits is the worst function of the human organism after sex. You have to sit on the most uncomfortable seat ever, then you have to go through so much pain to push the shit out of your asshole (not to mention sometimes they get stuck in there). And as if those weren't enough then you have to wipe, you have to take your hand along with toilet paper and shove it up your asshole, this process can sometimes take minutes out of your life, it fucking sucks. i hate taking shit. " + botMsg);
   }
@@ -96,7 +95,7 @@ client.on("messageCreate", message => {
   }
 
 
-  var keyGroupJ = ["pedo", "genshin", "curse", "child"];
+  var keyGroupJ = ["pedo", "genshin", "curse", "child", "league"];
   if (keyGroupJ.some(trigger => msgContent.includes(trigger))) {
     message.channel.send("This is fucking terrible. Genshin is a good game. We are not pedophiles. We are not obese. We dont care about bitches. Most of us arent fatherless. Blame the league of legend players for this shit not us. " + botMsg);
   }
@@ -138,8 +137,12 @@ client.on("messageCreate", message => {
     message.channel.send("I do not care what you say about my mother. Your opinion is your opinion. But trust me, if you actually attempt to do something to my mother, even though she's made some bad decisions in the past that we still need to work through, I will personally call the police on you and I'll be laughing as your mugshot is shown on TV. You don't even know her, do you? The point of your entire existence seems to be to just tease other people. Well, I believe your jokes are in bad taste, and you should cease and desist digging through the dregs left at the bottom of the joke barrel; you could get a splinter, whose pain will be significantly increased by the significantly high amount of salt you carry in your bloodstream. Thank you, and let us cease talking about each other's parents. " + botMsg);
   }
 
+  // if (message.content.toLowerCase().includes("dream")) {
+  //   message.channel.send("It was a saturday afternoon, and I was exhausted after an intense 17-part masturabation session to dream minecraft manhunt, when i suddenly had the urge to go outside. I was scared. It's been so long since i've left the warmth of my parents basement with my dream body pillows. I didnt know what to expect. Clutching my dream figurine in front of my chest, i pried open the door to the outside world. The gleaming sun blared through the door, bequeathing a brilliant warmth on my cum-covered boxers. I quaverly took a step outside. My body flintched from the strange feel of the dirt under my feet. And then i saw it. The lustrous field of grass, covered in a light sprinkle of water from the noon rain shower. And then i realized. Dream... grass... the trees... it was all coming together. Grass is green, just like Dream. Dream is everpresent, in the grass, the flowers, He was there. I immediately new what to do next. I flinged off my clothes faster than the speed at which i would click on a new dream rule 34 post. My dick was already throbbing as i leaped onto the field of grass, dorito dust stained shirt getting carried away by the wind. I dug a small hole in the ground, and passionately thrust my 7-inch erect cock into it. I knew, this was Dream. His spirit was in this grass, and he felt my dick in his man pussy as i fucked that grass. I lost track how long i was there. Hours went by, day turned to night, but it didnt matter. I was finally together, with Dream. Nothing could separate us. I took a long stem of a flower, and forced it in my asshole. I imagined it being Dream's hot penis being lustfully forced into me in bed. I stayed there on my front yard for god knows how long. Until my butt was sore, balls drier than the Saharan desert after a long drought. The lawn looked like there was a layer of fresh snow on a Christmas morning. Trudging indoors, i had a enormous smile stretching across my face. I couldn't wait until tomorrow, when i may go outside again and be with Dream. " + botMsg);
+  // }
+
   if (message.content.toLowerCase().includes("dream")) {
-    message.channel.send("It was a saturday afternoon, and I was exhausted after an intense 17-part masturabation session to dream minecraft manhunt, when i suddenly had the urge to go outside. I was scared. It's been so long since i've left the warmth of my parents basement with my dream body pillows. I didnt know what to expect. Clutching my dream figurine in front of my chest, i pried open the door to the outside world. The gleaming sun blared through the door, bequeathing a brilliant warmth on my cum-covered boxers. I quaverly took a step outside. My body flintched from the strange feel of the dirt under my feet. And then i saw it. The lustrous field of grass, covered in a light sprinkle of water from the noon rain shower. And then i realized. Dream... grass... the trees... it was all coming together. Grass is green, just like Dream. Dream is everpresent, in the grass, the flowers, He was there. I immediately new what to do next. I flinged off my clothes faster than the speed at which i would click on a new dream rule 34 post. My dick was already throbbing as i leaped onto the field of grass, dorito dust stained shirt getting carried away by the wind. I dug a small hole in the ground, and passionately thrust my 7-inch erect cock into it. I knew, this was Dream. His spirit was in this grass, and he felt my dick in his man pussy as i fucked that grass. I lost track how long i was there. Hours went by, day turned to night, but it didnt matter. I was finally together, with Dream. Nothing could separate us. I took a long stem of a flower, and forced it in my asshole. I imagined it being Dream's hot penis being lustfully forced into me in bed. I stayed there on my front yard for god knows how long. Until my butt was sore, balls drier than the Saharan desert after a long drought. The lawn looked like there was a layer of fresh snow on a Christmas morning. Trudging indoors, i had a enormous smile stretching across my face. I couldn't wait until tomorrow, when i may go outside again and be with Dream. " + botMsg);
+    message.channel.send("i was in science class… i got up to sharpen my dream pencil, and then my dream themed dildo fell out of my ass. i always keep it down there cause I like to imagine daddy dream ♥♥♥♥♥♥♥ me 24/7 and it feels so good. anyways it fell out of my ass and out of my pants and my dreamphobic classmates started laughing and making fun of me. the teacher sent me to the office and i had to explain what happened. the principal suspended me from school for a week!!! this is unacceptable. just because i love dream is not a reason to harass me" + botMsg);
   }
 
   if (message.content.toLowerCase().includes("ok")) {
