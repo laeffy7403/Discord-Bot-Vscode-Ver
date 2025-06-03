@@ -37,7 +37,7 @@ client.on("messageCreate", message => {
   
   // Help command [display available commands]
   if (msgContent.includes("help")) {
-    message.channel.send(" ``` You can trigger them by texting normally in the chat. ```");
+    message.channel.send(" ``` You can trigger them by texting normally in the chat.\n\n as for this AI is utilizing outdated data from 2022-2021.\n `@wes`[your message]. ```");
   }
 
 
