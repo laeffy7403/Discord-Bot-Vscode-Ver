@@ -1,0 +1,19 @@
+# node dependencies
+node_modules/
+
+# environment secrets
+.env
+
+# logs
+*.log
+
+# system files
+.DS_Store
+Thumbs.db
+
+# editor settings
+.vscode/
+
+# Replit files (since you got replit.nix)
+.replit
+replit.nix

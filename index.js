@@ -1,6 +1,6 @@
 const express = require("express")
 const app = express();
-app.listen(3001, () => {
+app.listen(3000, () => {
   console.log(`Project is running at!`);
 })
 app.get("/", (req, res) => {
@@ -161,8 +161,6 @@ client.on("messageCreate", message => {
 })
 
 
-
-
 //2nd CONTENT SECTION
 client.on("messageCreate", message => {
   if (message.author.bot) return;
@@ -268,11 +266,8 @@ clienta.on("messageCreate", async (message) => {
     await message.reply("Something went wrong with my AI brain 🤖⚠️");
   }
 });
-
 // Login to Discord
 clienta.login(process.env.DIS_TOKEN);
-
-
 
 
 
@@ -289,6 +284,7 @@ client.on('interactionCreate', async interaction => {
     await interaction.followUp('Pong again!');
   }
 });
+
 
 
 client.login(process.env.DIS_TOKEN)
