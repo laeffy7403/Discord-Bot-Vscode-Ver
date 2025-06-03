@@ -1,0 +1,12 @@
+I have two repo for this discord ai
+1 is for replit side, which kinda like a cloud ide.
+2 is for vsccode, which is locally.
+
+WHY need two repo for one project?
+replit have some prepare tools like 'secret' that keep sensitive information like token
+BUT in vsccode it has no such tools (or maybe extra extension, idk, never try) which WE have to create our 'seccret' tools manually that keep our token safely in .env
+
+Beside not onlt the different from. The runtime too
+
+Replit - use 3001 runtime (something happen in the command promtp and switching to 3001 is a tempoary usecase for port)
+Vscode - use 3000 runtime (when i push from replit to github, the runtime is 3001 and some err happened when i pulled down to vsccode because of the 3001 in pushed previously on replit. So i switched the runtime back to 3000 port)
