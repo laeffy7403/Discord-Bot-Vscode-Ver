@@ -1,7 +1,7 @@
 const express = require("express")
 const app = express();
 app.listen(3000, () => {
-  console.log(`Project is running at!`);
+  console.log(`Project is running!`);
 })
 app.get("/", (req, res) => {
   res.send("your code is running!");
@@ -10,7 +10,6 @@ const Discord = require("discord.js")
 const client = new Discord.Client({
   intents: ["GUILDS", "GUILD_MESSAGES"]
 });
-
 
 
 //FETCH DISCORD USERNAME BY ID
@@ -27,19 +26,99 @@ client.once('ready', async () => {
 
 
 
+// Load environment variables for toggle bot repplies
+// Part of the code that handles keyword toggling (IMPORTANT)
+const keywordToggleStates = new Map(); 
+
+// Helper function to get toggle state for a guild (default: enabled)
+function getKeywordToggleState(guildId) {
+  return keywordToggleStates.get(guildId) !== false; // Default to true if not set
+}
+
 
 // TEXT-BASED SECTION
 client.on("messageCreate", message => {
   if (message.author.bot) return;
 
+    //VARIABLES FOR THIS REGION ONLY
   const msgContent = message.content.toLowerCase();
   const botMsg = `\n\n**(I am a bot, and this action was performed automatically. Please contact ${creator.tag} the moderators of this sub if you have any questions or concerns.)**`;
+
+
+    // Check for simple toggle commands
+  if (msgContent === "on") {
+    // Check if user has permission to manage messages
+    if (!message.member.permissions.has("MANAGE_MESSAGES")) {
+      message.reply("❌ You need 'Manage Messages' permission to control keyword triggering.");
+      return;
+    }
+    
+    const guildId = message.guild.id;
+    keywordToggleStates.set(guildId, true);
+    message.reply("✅ Keyword Control is now **enabled** for this server.");
+    return;
+  }
   
-  // Help command [display available commands]
-  if (msgContent.includes("help")) {
-    message.channel.send(" ``` You can trigger them by texting normally in the chat.\n\n as for this AI is utilizing outdated data from 2022-2021.\n `@wes`[your message]. ```");
+  if (msgContent === "off") {
+    // Check if user has permission to manage messages
+    if (!message.member.permissions.has("MANAGE_MESSAGES")) {
+      message.reply("❌ You need 'Manage Messages' permission to control keyword triggering.");
+      return;
+    }
+    
+    const guildId = message.guild.id;
+    keywordToggleStates.set(guildId, false);
+    message.reply("❌ Keyword Control is now **disabled** for this server.");
+    return;
+  }
+  
+  // Check status command
+  if (msgContent === "status") {
+    const guildId = message.guild.id;
+    const isEnabled = getKeywordToggleState(guildId);
+    const status = isEnabled ? "enabled" : "disabled";
+    const emoji = isEnabled ? "✅" : "❌";
+    message.reply(`${emoji} Keyword Contorl is currently **${status}** for this server.`);
+    return;
   }
 
+    // Check for help command
+      if (msgContent.includes("help")) {
+      message.channel.send(" ``` You can trigger them by texting normally in the chat.\n\n as for this AI is utilizing outdated data from 2022-2021.\n `@wes`[your message]. ```");
+    }
+
+
+    // Only process keyword triggers if enabled for this guild
+  if (!getKeywordToggleState(message.guild.id)) {
+    // Still process other commands like "yes" even when keywords are disabled
+
+  //   return;
+  // }
+
+    const triggerResponses = {
+    ratio: [
+      "dont care",
+      "you didn't ask",
+      "ratio",
+      "go breathe trash air",
+      "dog water",
+      "you entering my cringe compilation",
+      "ur dad left",
+      "you dress like garbage",
+      "genshin player",
+      "your problem",
+      "get a job",
+      "not funny didn't laugh"
+    ]
+  };
+
+  for (const [trigger, responses] of Object.entries(triggerResponses)) {
+    if (msgContent.includes(trigger)) {
+      const responseText = responses.join(" + ") + botMsg;
+      message.channel.send(responseText);
+      break; // Only respond to one trigger at a time
+    }
+  }
 
   var keyGroupA = ["cj", "father", "fathers", "dad"];
   if (keyGroupA.some(trigger => msgContent.includes(trigger))) {
@@ -107,32 +186,6 @@ client.on("messageCreate", message => {
   }
 
 
-  const triggerResponses = {
-    ratio: [
-      "dont care",
-      "you didn't ask",
-      "ratio",
-      "go breathe trash air",
-      "dog water",
-      "you entering my cringe compilation",
-      "ur dad left",
-      "you dress like garbage",
-      "genshin player",
-      "your problem",
-      "get a job",
-      "not funny didn't laugh"
-    ]
-  };
-
-  for (const [trigger, responses] of Object.entries(triggerResponses)) {
-    if (msgContent.includes(trigger)) {
-      const responseText = responses.join(" + ") + botMsg;
-      message.channel.send(responseText);
-      break; // Only respond to one trigger at a time
-    }
-  }
-
-
   if (message.content.toLowerCase().includes("mom")) {
     message.channel.send("I do not care what you say about my mother. Your opinion is your opinion. But trust me, if you actually attempt to do something to my mother, even though she's made some bad decisions in the past that we still need to work through, I will personally call the police on you and I'll be laughing as your mugshot is shown on TV. You don't even know her, do you? The point of your entire existence seems to be to just tease other people. Well, I believe your jokes are in bad taste, and you should cease and desist digging through the dregs left at the bottom of the joke barrel; you could get a splinter, whose pain will be significantly increased by the significantly high amount of salt you carry in your bloodstream. Thank you, and let us cease talking about each other's parents. " + botMsg);
   }
@@ -153,38 +206,34 @@ client.on("messageCreate", message => {
   //   message.channel.send("'?', i see. So you built up the energy to reply nothing other than '?'. Out of all the things you could've replied, you just went '?' . Wow. Fuck you dipshit. This is not '?' . Dont think this is even funny. Even a feminist comedian is funnier than is shit. i sat and typed a proper message, I put time and thought into it and you jizz all over it by posting the two letter message '?'. You did not take one bit of my message into consideration, you just replied that without the intention of contributing to the conversation. I cant believe that you're this stupid. I do NOT waste my time when i write messages. YOU did, you took 5 second out of your life just to say '?' and piss me off. You fucking piece of shit. I hope you die alone in pain. You're an absolute disgrace to humanity and you know it. im amazed you even have friends. They must be assholes who spend all their time replying 'ok' to proper messages too. Now find something else to do with your life. You're fucking dead, '?' iddo. )" + botMsg);
   // }
 
-  // if (message.content === "💀") {
-  //   message.channel.send("Ok everyone since you dot listen when im nice, im going to get mean.reacting to message with clown (🤡), a skull (💀), or a nerd face (🤓) isn't funny. it's not cool, it's not interesting, it's annoying.reacting 3 emojis in particular aren't funny, they're RUDE. We as staff work hard to keep this place safe, and to have you all constantly react to our messages with mean emojis makes me FURIOUS.STOP reacting to our messages with rude emojis. They do NOTHING but make you look really, really stupid. it shows you have no rebuttals to our arguments, so you have to use juvenile tacties paramount to terrosism in order to stop us from being able to speak out truth.FROM NOW ON, IF YOU REACT WITH ANY MEAN EMOJIS, I AM WRITING YOUR NAME DOWN. IF YOU ARE A SERIAL REACTOR, YOUR USERNAME IS GOING TO A GOOGLE DOC. AT THE END OF THE MONTH, I WILL TAKE THIS DOC TO THE APPROPIATE AUTHORITIES FOR THEM TO INVESTIGATE AND ARREST YOU.  (I am a bot, and this action was performed automatically. Please contact yp the moderators of this sub if you have any questions or concerns.)");
-  // }
+  if (message.content === "💀") {
+    message.channel.send("Ok everyone since you dot listen when im nice, im going to get mean.reacting to message with clown (🤡), a skull (💀), or a nerd face (🤓) isn't funny. it's not cool, it's not interesting, it's annoying.reacting 3 emojis in particular aren't funny, they're RUDE. We as staff work hard to keep this place safe, and to have you all constantly react to our messages with mean emojis makes me FURIOUS.STOP reacting to our messages with rude emojis. They do NOTHING but make you look really, really stupid. it shows you have no rebuttals to our arguments, so you have to use juvenile tacties paramount to terrosism in order to stop us from being able to speak out truth.FROM NOW ON, IF YOU REACT WITH ANY MEAN EMOJIS, I AM WRITING YOUR NAME DOWN. IF YOU ARE A SERIAL REACTOR, YOUR USERNAME IS GOING TO A GOOGLE DOC. AT THE END OF THE MONTH, I WILL TAKE THIS DOC TO THE APPROPIATE AUTHORITIES FOR THEM TO INVESTIGATE AND ARREST YOU.  (I am a bot, and this action was performed automatically. Please contact yp the moderators of this sub if you have any questions or concerns.)");
+  }
 
-  // if (message.content === "huh") {
-  //   message.channel.send("i swear all she does all day is masterbate and masterbate, it sound like she's mixing mac and cheese and you can hear it throughtout the whole fucking house. My mom has been complaining to her but my sister just started going louder and louder. Worst part is my computer is in her room so everyday i have to go in there and see her just fucking DEMOLISHING her pussy, juice flying everywhere! and then i say, 'hey maybe out down a towel to keep clean atleast', BUT SHE JUST FUCKING IGNORES ME. I cant stand living here honestly. Yesterday when i went to go use my couputer it was absolutely drenched in her juices, and she stained atleast 6 of my shirts by now. And all my friends at school tease me, 'haha haha tobias got his sister's grool on his shirt', 'girlcum tobias' has become my nickname. i fucking hate it!. (I am a bot, and this action was performed automatically. Please contact yp the moderators of this sub if you have any questions or concerns.)");
-  // }
+  if (message.content === "huh") {
+    message.channel.send("i swear all she does all day is masterbate and masterbate, it sound like she's mixing mac and cheese and you can hear it throughtout the whole fucking house. My mom has been complaining to her but my sister just started going louder and louder. Worst part is my computer is in her room so everyday i have to go in there and see her just fucking DEMOLISHING her pussy, juice flying everywhere! and then i say, 'hey maybe out down a towel to keep clean atleast', BUT SHE JUST FUCKING IGNORES ME. I cant stand living here honestly. Yesterday when i went to go use my couputer it was absolutely drenched in her juices, and she stained atleast 6 of my shirts by now. And all my friends at school tease me, 'haha haha tobias got his sister's grool on his shirt', 'girlcum tobias' has become my nickname. i fucking hate it!. (I am a bot, and this action was performed automatically. Please contact yp the moderators of this sub if you have any questions or concerns.)");
+  }
 
-})
-
-
-//2nd CONTENT SECTION
-client.on("messageCreate", message => {
-  if (message.author.bot) return;
-
-  const msgContent = message.content.toLowerCase();
-  const botMsg = "\n\n**(I am a bot, and this action was performed automatically. Please contact yp the moderators of this sub if you have any questions or concerns.)**";
+  
 
 
-  var keyItemsA = ["pee", "ass"];
+
+  //GRAPHICS SECTION [VIDEO, IMGAE, GIF]
+  const keyItemsA = ["pee", "ass"];
   if (keyItemsA.some(trigger => msgContent.includes(trigger))) {
-    message.channel.send("https://cdn.discordapp.com/attachments/835877241292455966/1030533060678123572/unknown.png" + botMsg)
+    message.channel.send("https://cdn.discordapp.com/attachments/835877241292455966/1030533060678123572/unknown.png" + botMsg);
   }
+  // More key items and response can be added here as needed
 
-  if (message.content === "yes") {
-    message.channel.send("https://tenor.com/view/yes-giga-chad-chad-gif-23788137");
+
+    return;
   }
 })
 
 
 
-//EXPERIMENTING AI
+
+//AI SECTION
 require("dotenv").config();
 // const Discord = require("discord.js");
 const { Intents } = require("discord.js");
@@ -224,7 +273,7 @@ clienta.on("messageCreate", async (message) => {
         "X-Title": "Discord Bot" // Optional: your app name
       },
       body: JSON.stringify({
-        model: "openai/gpt-4", // Note: "gpt-4.1" might not be valid, use "gpt-4" or "gpt-4-turbo"
+        model: "openai/gpt-4-turbo", // Note: "gpt-4.1" might not be valid, use "gpt-4" or "gpt-4-turbo"
         messages: [
           { 
             role: "system", 
@@ -273,6 +322,74 @@ clienta.on("messageCreate", async (message) => {
 clienta.login(process.env.DIS_TOKEN);
 
 
+
+
+
+
+
+
+
+
+//EXPERIMENTING NEW FEATURE SECTION
+client.on("messageCreate", message => {
+  if (message.author.bot) return;
+  
+//   const msgContent = message.content.toLowerCase();
+//   const botMsg = "\n\n**(I am a bot, and this action was performed automatically. Please contact the moderators of this server if you have any questions or concerns.)**";
+  
+//   // Check for simple toggle commands
+//   if (msgContent === "on") {
+//     // Check if user has permission to manage messages
+//     if (!message.member.permissions.has("MANAGE_MESSAGES")) {
+//       message.reply("❌ You need 'Manage Messages' permission to control keyword triggering.");
+//       return;
+//     }
+    
+//     const guildId = message.guild.id;
+//     keywordToggleStates.set(guildId, true);
+//     message.reply("✅ Keyword triggering is now **enabled** for this server.");
+//     return;
+//   }
+  
+//   if (msgContent === "off") {
+//     // Check if user has permission to manage messages
+//     if (!message.member.permissions.has("MANAGE_MESSAGES")) {
+//       message.reply("❌ You need 'Manage Messages' permission to control keyword triggering.");
+//       return;
+//     }
+    
+//     const guildId = message.guild.id;
+//     keywordToggleStates.set(guildId, false);
+//     message.reply("❌ Keyword triggering is now **disabled** for this server.");
+//     return;
+//   }
+  
+//   // Check status command
+//   if (msgContent === "status") {
+//     const guildId = message.guild.id;
+//     const isEnabled = getKeywordToggleState(guildId);
+//     const status = isEnabled ? "enabled" : "disabled";
+//     const emoji = isEnabled ? "✅" : "❌";
+//     message.reply(`${emoji} Keyword triggering is currently **${status}** for this server.`);
+//     return;
+//   }
+
+  
+//   // Only process keyword triggers if enabled for this guild
+//   if (!getKeywordToggleState(message.guild.id)) {
+//     // Still process other commands like "yes" even when keywords are disabled
+    
+
+
+//     if (message.content.toLowerCase() === "yes") {
+//       message.channel.send("https://tenor.com/view/yes-giga-chad-chad-gif-23788137");
+
+
+//     }
+//     return;
+//   }
+
+});
 
 
 
