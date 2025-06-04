@@ -83,7 +83,7 @@ client.on("messageCreate", message => {
   }
 
     // Check for help command
-    var manualToggle = "keyword control toggle\n[on] - enable keyword control from trigerring\n[off] - disable keyword control allow specific to be trigger from user\n[status] - check the status of keyword contorl in the server"; 
+    var manualToggle = "keyword control toggle[need access from the server]\n[on] - enable keyword control from trigerring\n[off] - disable keyword control allow specific to be trigger from user\n[status] - check the status of keyword contorl in the server"; 
     var manualAI = "\n\nAI command\n`@wes`[your message] - use this command to trigger the AI to respond to your message.\n\n**Note:** The AI is using outdated data from 2022-2021, so it may not have the latest information.";
       if (msgContent.includes("help")) {
       message.channel.send(" ```" + manualToggle + manualAI + "```" + botMsg);
