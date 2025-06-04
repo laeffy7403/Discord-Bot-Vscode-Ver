@@ -83,8 +83,10 @@ client.on("messageCreate", message => {
   }
 
     // Check for help command
+    var manualToggle = "keyword control toggle\n[on] - enable keyword control from trigerring\n[off] - disable keyword control allow specific to be trigger from user\n[status] - check the status of keyword contorl in the server"; 
+    var manualAI = "\n\nAI command\n`@wes`[your message] - use this command to trigger the AI to respond to your message.\n\n**Note:** The AI is using outdated data from 2022-2021, so it may not have the latest information.";
       if (msgContent.includes("help")) {
-      message.channel.send(" ``` You can trigger them by texting normally in the chat.\n\n as for this AI is utilizing outdated data from 2022-2021.\n `@wes`[your message]. ```");
+      message.channel.send(" ```" + manualToggle + manualAI + "```" + botMsg);
     }
 
 
@@ -214,7 +216,7 @@ client.on("messageCreate", message => {
     message.channel.send("i swear all she does all day is masterbate and masterbate, it sound like she's mixing mac and cheese and you can hear it throughtout the whole fucking house. My mom has been complaining to her but my sister just started going louder and louder. Worst part is my computer is in her room so everyday i have to go in there and see her just fucking DEMOLISHING her pussy, juice flying everywhere! and then i say, 'hey maybe out down a towel to keep clean atleast', BUT SHE JUST FUCKING IGNORES ME. I cant stand living here honestly. Yesterday when i went to go use my couputer it was absolutely drenched in her juices, and she stained atleast 6 of my shirts by now. And all my friends at school tease me, 'haha haha tobias got his sister's grool on his shirt', 'girlcum tobias' has become my nickname. i fucking hate it!. (I am a bot, and this action was performed automatically. Please contact yp the moderators of this sub if you have any questions or concerns.)");
   }
 
-  
+
 
 
 
