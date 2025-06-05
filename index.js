@@ -40,6 +40,10 @@ function getKeywordToggleState(guildId) {
 client.on("messageCreate", message => {
   if (message.author.bot) return;
 
+  if (message.content === "test") {
+    message.channel.send("Bot is running from vscode!");
+  }
+  
     //VARIABLES FOR THIS REGION ONLY
   const msgContent = message.content.toLowerCase();
   const botMsg = `\n\n**(I am a bot, and this action was performed automatically. Please contact ${creator.tag} the moderators of this sub if you have any questions or concerns.)**`;
