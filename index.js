@@ -1,6 +1,6 @@
 const express = require("express")
 const app = express();
-app.listen(3000, () => {
+app.listen(3001, () => {
   console.log(`Project is running!`);
 })
 app.get("/", (req, res) => {
@@ -41,7 +41,7 @@ client.on("messageCreate", message => {
   if (message.author.bot) return;
 
   if (message.content === "test") {
-    message.channel.send("Bot is running from vscode!");
+    message.channel.send("wes is running from vscode!");
   }
   
     //VARIABLES FOR THIS REGION ONLY
