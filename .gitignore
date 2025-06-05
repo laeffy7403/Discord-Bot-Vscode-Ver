@@ -2,7 +2,7 @@
 node_modules/
 
 # environment secrets
-.env
+# .env
 
 # logs
 *.log
