@@ -1,10 +1,10 @@
 const express = require("express")
 const app = express();
-app.listen(3001, () => {
-  console.log(`Project is running!`);
+app.listen(3000, () => {
+  console.log(`wes is running!`);
 })
 app.get("/", (req, res) => {
-  res.send("your code is running!");
+  res.send("wes is running!");
 })
 const Discord = require("discord.js")
 const client = new Discord.Client({
