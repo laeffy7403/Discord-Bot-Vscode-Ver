@@ -50,7 +50,7 @@ client.on("messageCreate", message => {
 
 
     // Check for simple toggle commands
-  if (msgContent === "on") {
+  if (msgContent === "t on") {
     // Check if user has permission to manage messages
     if (!message.member.permissions.has("MANAGE_MESSAGES")) {
       message.reply("❌ You need 'Manage Messages' permission to control keyword triggering.");
@@ -63,7 +63,7 @@ client.on("messageCreate", message => {
     return;
   }
   
-  if (msgContent === "off") {
+  if (msgContent === "t off") {
     // Check if user has permission to manage messages
     if (!message.member.permissions.has("MANAGE_MESSAGES")) {
       message.reply("❌ You need 'Manage Messages' permission to control keyword triggering.");
@@ -77,7 +77,7 @@ client.on("messageCreate", message => {
   }
   
   // Check status command
-  if (msgContent === "status") {
+  if (msgContent === "t status") {
     const guildId = message.guild.id;
     const isEnabled = getKeywordToggleState(guildId);
     const status = isEnabled ? "enabled" : "disabled";
@@ -133,7 +133,7 @@ client.on("messageCreate", message => {
   }
 
 
-  var keyGroupB = ["lean", "wow", "damn", "dem", "lol", "lmao"];
+  var keyGroupB = ["lean", "wow", "damn", "dem", "lol", "lmao", "waw"];
   if (keyGroupB.some(trigger => msgContent.includes(trigger))) {
     message.channel.send("It literally just cola you piece of shit. There's no cough syrup or anything. What the fuck is wrong with you. How fucking desperate are you to seem cool that you decide you want to force a `joke` about a child consuming drugs. Which would be funny except nothing in this scene implies that they're doing drugs or a drug stand-in. You just saw a can of soda and the two neurons in your head fired for the first time in a week, and you jumped into the comments to screech lEAn and spam purple emojis like a clown bastard. You people are the reason art is dying. Fuck you. " + botMsg);
   }
