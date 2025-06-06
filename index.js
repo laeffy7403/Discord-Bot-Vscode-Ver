@@ -201,13 +201,24 @@ client.on("messageCreate", message => {
     message.channel.send("I need the WORST Copypastas you've ever read\nGuys I have a TikTok account and I need the WORST Posts you've ever read!\nMaybe not a whole Book, maybe like 1 - 2 Minutes to read.\nWould be awesome! " + botMsg);
   }
 
-  var textSeg1 = "It was a saturday afternoon, and I was exhausted after an intense 17-part masturabation session to dream minecraft manhunt, when i suddenly had the urge to go outside. I was scared. It's been so long since i've left the warmth of my parents basement with my dream body pillows. I didnt know what to expect. Clutching my dream figurine in front of my chest, i pried open the door to the outside world. The gleaming sun blared through the door, bequeathing a brilliant warmth on my cum-covered boxers. I quaverly took a step outside. My body flintched from the strange feel of the dirt under my feet. And then i saw it. The lustrous field of grass, covered in a light sprinkle of water from the noon rain shower. ";
-  var textSeg2 = "And then i realized. Dream... grass... the trees... it was all coming together. Grass is green, just like Dream. Dream is everpresent, in the grass, the flowers, He was there. I immediately new what to do next. I flinged off my clothes faster than the speed at which i would click on a new dream rule 34 post. My dick was already throbbing as i leaped onto the field of grass, dorito dust stained shirt getting carried away by the wind. I dug a small hole in the ground, and passionately thrust my 7-inch erect cock into it. I knew, this was Dream. His spirit was in this grass, and he felt my dick in his man pussy as i fucked that grass. I lost track how long i was there. Hours went by, day turned to night, but it didnt matter.";
-  var textSeg3 = "I was finally together, with Dream. Nothing could separate us. I took a long stem of a flower, and forced it in my asshole. I imagined it being Dream's hot penis being lustfully forced into me in bed. I stayed there on my front yard for god knows how long. Until my butt was sore, balls drier than the Saharan desert after a long drought. The lawn looked like there was a layer of fresh snow on a Christmas morning. Trudging indoors, i had a enormous smile stretching across my face. I couldn't wait until tomorrow, when i may go outside again and be with Dream.";
-  var keyGroupN = ["dream"];
-  if (keyGroupN.some(trigger => msgContent.includes(trigger))) {
-    message.channel.send(textSeg1 + textSeg2 + textSeg3 + botMsg);
+  var textSeg1 = "1.It was a saturday afternoon, and I was exhausted after an intense 17-part masturabation session to dream minecraft manhunt, when i suddenly had the urge to go outside. I was scared. It's been so long since i've left the warmth of my parents basement with my dream body pillows. I didnt know what to expect. Clutching my dream figurine in front of my chest, i pried open the door to the outside world. The gleaming sun blared through the door, bequeathing a brilliant warmth on my cum-covered boxers. I quaverly took a step outside. My body flintched from the strange feel of the dirt under my feet. And then i saw it. The lustrous field of grass, covered in a light sprinkle of water from the noon rain shower. ";
+  var textSeg2 = "2.And then i realized. Dream... grass... the trees... it was all coming together. Grass is green, just like Dream. Dream is everpresent, in the grass, the flowers, He was there. I immediately new what to do next. I flinged off my clothes faster than the speed at which i would click on a new dream rule 34 post. My dick was already throbbing as i leaped onto the field of grass, dorito dust stained shirt getting carried away by the wind. I dug a small hole in the ground, and passionately thrust my 7-inch erect cock into it. I knew, this was Dream. His spirit was in this grass, and he felt my dick in his man pussy as i fucked that grass. I lost track how long i was there. Hours went by, day turned to night, but it didnt matter.";
+  var textSeg3 = "3.I was finally together, with Dream. Nothing could separate us. I took a long stem of a flower, and forced it in my asshole. I imagined it being Dream's hot penis being lustfully forced into me in bed. I stayed there on my front yard for god knows how long. Until my butt was sore, balls drier than the Saharan desert after a long drought. The lawn looked like there was a layer of fresh snow on a Christmas morning. Trudging indoors, i had a enormous smile stretching across my face. I couldn't wait until tomorrow, when i may go outside again and be with Dream.";
+  // var keyGroupN = ["dream"];
+  // if (keyGroupN.some(trigger => msgContent.includes(trigger))) {
+  //   message.channel.send(textSeg1 + textSeg2 + textSeg3 + botMsg);
+  // }
+
+  if (message.content.toLowerCase().includes("dream")) {
+    message.channel.send(textSeg1 + botMsg);
   }
+    if (message.content.toLowerCase().includes("dream")) {
+    message.channel.send(textSeg2 + botMsg);
+  }
+    if (message.content.toLowerCase().includes("dream")) {
+    message.channel.send(textSeg3 + botMsg);
+  }
+
 
 
   if (message.content.toLowerCase().includes("mom")) {
