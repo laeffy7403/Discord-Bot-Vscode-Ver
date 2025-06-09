@@ -380,9 +380,6 @@ clienta.login(process.env.DIS_TOKEN);
 
 
 
-
-
-
 //EXPERIMENTING NEW FEATURE SECTION
 client.on("messageCreate", message => {
   if (message.author.bot) return;
@@ -462,4 +459,5 @@ client.on('interactionCreate', async interaction => {
 
 client.login(process.env.DIS_TOKEN)
 clienta.login(process.env.DIS_TOKEN)
+// clientb.login(process.env.DIS_TOKEN)
 const mySecret = process.env['DIS_TOKEN']
