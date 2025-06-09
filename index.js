@@ -50,31 +50,50 @@ client.on("messageCreate", message => {
 
 
     // Check for simple toggle commands
-  if (msgContent === "t on") {
-    // Check if user has permission to manage messages
-    if (!message.member.permissions.has("MANAGE_MESSAGES")) {
-      message.reply("❌ You need 'Manage Messages' permission to control keyword triggering.");
-      return;
-    }
+    //OPTION 1: TOGGLE ACCESS BASED ON SERVER PERMISSIONS
+  // if (msgContent === "t on") {
+  //   // Check if user has permission to manage messages
+  //   if (!message.member.permissions.has("MANAGE_MESSAGES")) {
+  //     message.reply("❌ You need 'Manage Messages' permission to control keyword triggering.");
+  //     return;
+  //   }
     
+  //   const guildId = message.guild.id;
+  //   keywordToggleStates.set(guildId, true);
+  //   message.reply("✅ Keyword Control is now **enabled** for this server.");
+  //   return;
+  // }
+  
+  // if (msgContent === "t off") {
+  //   // Check if user has permission to manage messages
+  //   if (!message.member.permissions.has("MANAGE_MESSAGES")) {
+  //     message.reply("❌ You need 'Manage Messages' permission to control keyword triggering.");
+  //     return;
+  //   }
+    
+  //   const guildId = message.guild.id;
+  //   keywordToggleStates.set(guildId, false);
+  //   message.reply("❌ Keyword Control is now **disabled** for this server.");
+  //   return;
+  // }
+  
+
+  //OPTION 2: TOGGLE ACCESS BASED WITHOUT SERVER PERMISSIONS
+    if (msgContent === "t on") {
     const guildId = message.guild.id;
     keywordToggleStates.set(guildId, true);
     message.reply("✅ Keyword Control is now **enabled** for this server.");
     return;
   }
-  
+ 
   if (msgContent === "t off") {
-    // Check if user has permission to manage messages
-    if (!message.member.permissions.has("MANAGE_MESSAGES")) {
-      message.reply("❌ You need 'Manage Messages' permission to control keyword triggering.");
-      return;
-    }
-    
     const guildId = message.guild.id;
     keywordToggleStates.set(guildId, false);
     message.reply("❌ Keyword Control is now **disabled** for this server.");
     return;
   }
+
+
   
   // Check status command
   if (msgContent === "t status") {
