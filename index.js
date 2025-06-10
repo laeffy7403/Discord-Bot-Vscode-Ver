@@ -5,9 +5,7 @@ app.listen(3000, () => {
   console.log(`wes is running!`);
 })
 
-app.get("/", (req, res) => {
-  res.send("wes is running!");
-})
+app.get("/", (req, res) => {res.send("wes is running!");})
 
 const Discord = require("discord.js")
 const client = new Discord.Client({
@@ -32,6 +30,7 @@ client.once('ready', async () => {
 require('./bot_modules/word-trigger.js');
 require('./bot_modules/ai-bot.js');
 require('./bot_modules/photo-tracker.js');
+require('./bot_modules/stay-up.js');
 
 
 //EXPERIMENTING NEW FEATURE SECTION 
