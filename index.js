@@ -278,7 +278,6 @@ client.on("messageCreate", message => {
   }
   // More key items and response can be added here as needed
 
-
     return;
   }
 })
@@ -315,7 +314,7 @@ clienta.on("messageCreate", async (message) => {
   const userName = message.author.username;
 
   try {
-    console.log("Sending request to Claude OpenRouter..."); // Debug log
+    console.log("Sending request to deepseek OpenRouter..."); // Debug log
 
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
@@ -326,7 +325,7 @@ clienta.on("messageCreate", async (message) => {
         "X-Title": "Discord Bot" // Optional: your app name
       },
       body: JSON.stringify({
-        model: "deepseek/deepseek-r1:free", // Note: "gpt-4.1" might not be valid, use "gpt-4" or "gpt-4-turbo" "c", "anthropic/claude-3-haiku"
+        model: "deepseek/deepseek-r1-0528-qwen3-8b:free", // Note: use "gpt-4" or "gpt-4-turbo" "anthropic/claude-3-haiku" mistralai/devstral-small:free  deepseek/deepseek-r1:free
         messages: [
           { 
             role: "system", 
@@ -335,7 +334,7 @@ clienta.on("messageCreate", async (message) => {
           { role: "user", content: userInput }
         ],
         temperature: 0.7,
-        max_tokens: 2000 // Adjust as needed
+        max_tokens: 0 // Adjust as needed
       })
     });
     
@@ -358,11 +357,11 @@ clienta.on("messageCreate", async (message) => {
 
     if (reply.length > 0) {
       // Handle Discord's 2000 character limit
-      if (reply.length > 2000) {
+      if (reply.length > 3000) {
         // Split into chunks for long responses
         const chunks = [];
-        for (let i = 0; i < reply.length; i += 2000) {
-          chunks.push(reply.substring(i, i + 2000));
+        for (let i = 0; i < reply.length; i += 3000) {
+          chunks.push(reply.substring(i, i + 3000));
         }
         
         await message.reply(chunks[0]);
@@ -377,7 +376,7 @@ clienta.on("messageCreate", async (message) => {
     }
     
   } catch (error) {
-    console.error("Error calling Claude:", error.message);
+    console.error("Error calling deepseek:", error.message);
     await message.reply("Something went wrong with Claude 🤖⚠️");
   }
 });
