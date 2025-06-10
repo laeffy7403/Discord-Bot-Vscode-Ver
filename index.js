@@ -326,7 +326,7 @@ clienta.on("messageCreate", async (message) => {
         "X-Title": "Discord Bot" // Optional: your app name
       },
       body: JSON.stringify({
-        model: "anthropic/claude-3-haiku", // Note: "gpt-4.1" might not be valid, use "gpt-4" or "gpt-4-turbo" "c", "anthropic/claude-3-haiku"
+        model: "deepseek/deepseek-r1:free", // Note: "gpt-4.1" might not be valid, use "gpt-4" or "gpt-4-turbo" "c", "anthropic/claude-3-haiku"
         messages: [
           { 
             role: "system", 
@@ -335,7 +335,7 @@ clienta.on("messageCreate", async (message) => {
           { role: "user", content: userInput }
         ],
         temperature: 0.7,
-        max_tokens: 800 // Adjust as needed
+        max_tokens: 2000 // Adjust as needed
       })
     });
     
