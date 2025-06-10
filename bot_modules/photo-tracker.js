@@ -107,7 +107,7 @@ client.on('messageCreate', async (message) => {
 });
 
 // Prefix commands (since slash commands are more complex in v13)
-const PREFIX = '!';
+const PREFIX = '';
 
 client.on('messageCreate', async (message) => {
     if (message.author.bot) return;
@@ -186,7 +186,7 @@ async function handlePhotoStats(message, args) {
             return message.reply('User not found! Please mention a user or provide a valid user ID.');
         }
     } else {
-        return message.reply('Please mention a user or provide a user ID. Example: `!photostats @username`');
+        return message.reply('Please mention a user or provide a user ID. Example: `photostats @username`');
     }
     
     const serverId = message.guild.id;
