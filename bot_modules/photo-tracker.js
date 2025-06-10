@@ -6,7 +6,6 @@ const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
 // Bot configuration
-// const DIS_TOKEN = 'OTcwMjgzNjEzODE4MDczMDk4.GnHYzd.5MaURseEEXnkLHwMCwm_B76EI3K1wHO7EhJat0';
 const client = new Client({
     intents: [
         Intents.FLAGS.GUILDS,
