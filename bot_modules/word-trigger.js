@@ -4,6 +4,17 @@ const client = new Discord.Client({
   intents: ["GUILDS", "GUILD_MESSAGES"]
 });
 
+let creator; 
+
+client.once('ready', async () => {
+  try {
+    creator = await client.users.fetch("693111194319323197");
+    console.log(`Logged in as ${client.user.tag}, owned by ${creator.tag}`);
+  } catch (err) {
+    console.error("Failed to fetch owner user:", err);
+  }
+});
+
 // Load environment variables for toggle bot repplies
 // Part of the code that handles keyword toggling (IMPORTANT)
 const keywordToggleStates = new Map(); 
@@ -12,7 +23,6 @@ const keywordToggleStates = new Map();
 function getKeywordToggleState(guildId) {
   return keywordToggleStates.get(guildId) !== false; // Default to true if not set
 }
-
 
 // TEXT-BASED SECTION
 client.on("messageCreate", message => {
@@ -72,7 +82,7 @@ client.on("messageCreate", message => {
   }
   
   // Check status command
-  if (msgContent === "t status") {
+  if (msgContent === "t stat") {
     const guildId = message.guild.id;
     const isEnabled = getKeywordToggleState(guildId);
     const status = isEnabled ? "enabled" : "disabled";

@@ -118,22 +118,22 @@ client.on('messageCreate', async (message) => {
 
     try {
         switch (command) {
-            case 'mystats':
+            case 'mystat':
                 await handleMyStats(message);
                 break;
-            case 'photostats':
+            case 'photostat':
                 await handlePhotoStats(message, args);
                 break;
-            case 'toposters':
+            case 'toposter':
                 await handleTopPosters(message);
                 break;
-            case 'serverstats':
+            case 'serverstat':
                 await handleServerStats(message);
                 break;
-            case 'channelstats':
+            case 'channelstat':
                 await handleChannelStats(message, args);
                 break;
-            case 'help':
+            // case 'help':
                 await handleHelp(message);
                 break;
         }
