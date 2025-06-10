@@ -315,7 +315,7 @@ clienta.on("messageCreate", async (message) => {
   const userName = message.author.username;
 
   try {
-    console.log("Sending request to OpenRouter..."); // Debug log
+    console.log("Sending request to Claude OpenRouter..."); // Debug log
 
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
@@ -326,7 +326,7 @@ clienta.on("messageCreate", async (message) => {
         "X-Title": "Discord Bot" // Optional: your app name
       },
       body: JSON.stringify({
-        model: "openai/gpt-4-turbo", // Note: "gpt-4.1" might not be valid, use "gpt-4" or "gpt-4-turbo"
+        model: "anthropic/claude-3-haiku", // Note: "gpt-4.1" might not be valid, use "gpt-4" or "gpt-4-turbo" "c", "anthropic/claude-3-haiku"
         messages: [
           { 
             role: "system", 
@@ -335,10 +335,10 @@ clienta.on("messageCreate", async (message) => {
           { role: "user", content: userInput }
         ],
         temperature: 0.7,
-        max_tokens: 200
+        max_tokens: 800 // Adjust as needed
       })
     });
-
+    
     // Exception handling
     if (!response.ok) {
       const errText = await response.text();
@@ -357,18 +357,28 @@ clienta.on("messageCreate", async (message) => {
     let reply = data.choices[0].message.content.trim();
 
     if (reply.length > 0) {
-      // Discord has a 2000 character limit
+      // Handle Discord's 2000 character limit
       if (reply.length > 2000) {
-        reply = reply.substring(0, 1997) + "...";
+        // Split into chunks for long responses
+        const chunks = [];
+        for (let i = 0; i < reply.length; i += 2000) {
+          chunks.push(reply.substring(i, i + 2000));
+        }
+        
+        await message.reply(chunks[0]);
+        for (let i = 1; i < chunks.length; i++) {
+          await message.channel.send(chunks[i]);
+        }
+      } else {
+        await message.reply(reply);
       }
-      await message.reply(reply);
     } else {
-      await message.reply("Hmm, I'm not sure how to respond to that 🤔");
+      await message.reply("Hmm, ask proper question dumbass 🤖");
     }
-
+    
   } catch (error) {
-    console.error("Error calling OpenRouter:", error.message);
-    await message.reply("Something went wrong with my AI brain 🤖⚠️");
+    console.error("Error calling Claude:", error.message);
+    await message.reply("Something went wrong with Claude 🤖⚠️");
   }
 });
 // Login to Discord
