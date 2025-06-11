@@ -7,7 +7,7 @@ const client = new Discord.Client({
 client.once('ready', () => {
   console.log(`Logged in as ${client.user.tag}`);
   const channelId = '1380085584394981428'; // change this
-  const interval = 5 * 60 * 1000; // 5 minutes in milliseconds
+  const interval = 6 * 60 * 1000; // 6 minutes in milliseconds
   var i = 0;
   var br = '--------------------------------------------------------------';
   
@@ -15,7 +15,7 @@ client.once('ready', () => {
     const channel = client.channels.cache.get(channelId);
     if (channel) {
       i++;
-      channel.send(`${br} stay up every 5 min count: **${i}** 😤`);
+      channel.send(`${br} stay up every 6 min count: **${i}** 😤`);
     } else {
       console.log('Channel not found.');
     }
