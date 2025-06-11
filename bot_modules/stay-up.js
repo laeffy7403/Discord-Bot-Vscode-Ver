@@ -19,7 +19,7 @@ client.once('ready', () => {
     if (channel) {
       i++;
       channel.send(`stay up every 5 min count: **${i}** 😤`);
-      // channel.send(`-- wes --`);
+      channel.send(`-- wes --`);
     } else {
       console.log('Channel not found.');
     }
