@@ -15,12 +15,14 @@ client.once('ready', () => {
   const channelId = '1380085584394981428'; // change this
   // const interval = 10 * 60 * 1000; // 10 minutes in milliseconds
   const interval = 5 * 60 * 1000; // 5 minutes in milliseconds
-//   const interval = 5* 1000; // 5 sec in milliseconds
+  // const interval = 5* 1000; // 5 sec in milliseconds
+  var i = 0;
 
   setInterval(() => {
     const channel = client.channels.cache.get(channelId);
     if (channel) {
-      channel.send("Hello! I'm still alive, don't forget about me 😤");
+      i++;
+      channel.send(`stay up every 5 min count: ${i} 😤`);
     } else {
       console.log('Channel not found.');
     }
