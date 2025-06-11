@@ -24,6 +24,14 @@ function getKeywordToggleState(guildId) {
   return keywordToggleStates.get(guildId) !== false; // Default to true if not set
 }
 
+client.on("messageCreate", message => {
+  const msgContent = message.content.toLowerCase();
+      var signal = ["wes", "monika"];
+  if (signal.some(trigger => msgContent.includes(trigger))) {
+    message.channel.send("monika monika monika monika!");
+  }
+});
+
 // TEXT-BASED SECTION
 client.on("messageCreate", message => {
   if (message.author.bot) return;
@@ -35,7 +43,6 @@ client.on("messageCreate", message => {
     //VARIABLES FOR THIS REGION ONLY
   const msgContent = message.content.toLowerCase();
   const botMsg = `\n\n**(I am a bot, and this action was performed automatically. Please contact ${creator.tag} the moderators of this sub if you have any questions or concerns.)**`;
-
 
     // Check for simple toggle commands
     //OPTION 1: TOGGLE ACCESS BASED ON SERVER PERMISSIONS
@@ -127,7 +134,6 @@ client.on("messageCreate", message => {
   var keyGroupA = ["cj", "father", "fathers", "dad"];
   if (keyGroupA.some(trigger => msgContent.includes(trigger))) {
     message.channel.send("is having daugthers the ultimate cuckoldry? I cannot think or comprehend of anything more cucked than having a daughter. Honestly, think about it rationally. You are feeding, clothing, raising and rearing a girl for at least 18years sorely so she can go and get ravaged by another man. All the hard work you put into your beautiful little girl - reading her stories at bedtime, making her go to sport practise, making sure she had a healthy diet, educating her, playing with her. All of it has one simple result: her body is more enjoyable for the men that will eventually fuck her in every hole. Raised the perfect girl? Great. Who benefits? If you're lucky, a random man had nothing to do with the way she grew up, who marries her. He gets to fuck her tight pussy every night. He gets the benefits of her kind and sweet personallity that came from the way you raised her. As a man who has a daughter, you are LITERALLY dedicating at least 20 years of you life simply to raise a girl for another man to enjoy. It is the ULYIMATE AND FINAL cuck. Think about it logically. " + botMsg);
-
   }
 
 
