@@ -1,7 +1,7 @@
 const express = require("express")
 const app = express();
 
-app.listen(3001, () => {
+app.listen(3000, () => {
   console.log(`wes is running!`);
 })
 
@@ -19,7 +19,7 @@ let creator;
 client.once('ready', async () => {
   try {
     creator = await client.users.fetch("693111194319323197");
-    console.log(`Logged in as ${client.user.tag}, owned by ${creator.tag}`);
+    console.log(`Logged in as ${client.user.tag}, owned by ${creator.tag} main`);
   } catch (err) {
     console.error("Failed to fetch owner user:", err);
   }

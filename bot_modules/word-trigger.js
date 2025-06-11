@@ -9,7 +9,7 @@ let creator;
 client.once('ready', async () => {
   try {
     creator = await client.users.fetch("693111194319323197");
-    console.log(`Logged in as ${client.user.tag}, owned by ${creator.tag}`);
+    console.log(`Logged in as ${client.user.tag}, owned by ${creator.tag} word`);
   } catch (err) {
     console.error("Failed to fetch owner user:", err);
   }
@@ -23,14 +23,6 @@ const keywordToggleStates = new Map();
 function getKeywordToggleState(guildId) {
   return keywordToggleStates.get(guildId) !== false; // Default to true if not set
 }
-
-// client.on("messageCreate", message => {
-//   const msgContent = message.content.toLowerCase();
-//       var signal = ["wes", "monika", "m", "o", "n", "i", "k", "a", "w", "e","s", "-"];
-//   if (signal.some(trigger => msgContent.includes(trigger))) {
-//     message.channel.send("monika monika monika monika monika monika!");
-//   }
-// });
 
 // TEXT-BASED SECTION
 client.on("messageCreate", message => {
