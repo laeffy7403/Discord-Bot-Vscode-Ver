@@ -16,6 +16,7 @@ client.once('ready', () => {
     if (channel) {
       i++;
       channel.send(`${br} stay up every 6 min count: **${i}** 😤`);
+      channel.send(`- monika wes -`);
     } else {
       console.log('Channel not found.');
     }
