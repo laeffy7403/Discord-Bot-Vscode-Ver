@@ -14,9 +14,9 @@ client.once('ready', async () => {
     console.error("Failed to fetch owner user:", err);
   }
 });
-
+  
 // Load environment variables for toggle bot repplies
-// Part of the code that handles keyword toggling (IMPORTANT)
+// Part of the code that handles keyword toggling (IMPORTANT) 
 const keywordToggleStates = new Map(); 
 
 // Helper function to get toggle state for a guild (default: enabled)
