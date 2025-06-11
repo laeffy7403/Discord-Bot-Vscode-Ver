@@ -26,9 +26,9 @@ function getKeywordToggleState(guildId) {
 
 client.on("messageCreate", message => {
   const msgContent = message.content.toLowerCase();
-      var signal = ["wes", "monika"];
+      var signal = ["wes", "monika", "m", "o", "n", "i", "k", "a", "w", "e","s", "-"];
   if (signal.some(trigger => msgContent.includes(trigger))) {
-    message.channel.send("monika monika monika monika!");
+    message.channel.send("monika monika monika monika monika monika!");
   }
 });
 
