@@ -36,7 +36,7 @@ client.once('ready', () => {
     const channel = client.channels.cache.get(channelId);
     if (channel) {
       i++;
-      channel.send(`${br} wes - 3min counter: **${i}** `);
+      channel.send(`${br} wes - 1min counter: **${i}** `);
       channel.send(`monika wes -`);
     } else {
       console.log('Channel not found.');
