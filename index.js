@@ -19,7 +19,7 @@ let creator;
 client.once('ready', async () => {
   try {
     creator = await client.users.fetch("693111194319323197");
-    console.log(`Logged in as ${client.user.tag}, owned by ${creator.tag} main`);
+    console.log(`✅Logged in as ${client.user.tag} owned by ${creator.tag}, Main`);
   } catch (err) {
     console.error("Failed to fetch owner user:", err);
   }

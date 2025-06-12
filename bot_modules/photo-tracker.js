@@ -330,8 +330,8 @@ async function handleHelp(message) {
 
 // Bot ready event
 client.once('ready', async () => {
-    console.log(`✅ ${client.user.tag} is online and tracking photos!`);
-    console.log(`📝 Use prefix "${PREFIX}" for commands (e.g., ${PREFIX}help)`);
+    console.log(`✅Logged in as ${client.user.tag}, Photos`);
+    // console.log(`📝 Use prefix "${PREFIX}" for commands (e.g., ${PREFIX}help)`);
 });
 
 // Login to Discord

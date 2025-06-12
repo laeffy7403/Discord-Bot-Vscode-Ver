@@ -11,7 +11,7 @@ const client = new Discord.Client({
 
 // Discord bot ready
 client.once("ready", () => {
-  console.log(`Logged in as ${client.user.tag} AI`);
+  console.log(`✅Logged in as ${client.user.tag}, AI`);
 });
 
 // Message listener for AI responses

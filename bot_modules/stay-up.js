@@ -26,7 +26,7 @@ const client = new Discord.Client({
 
 
 client.once('ready', () => {
-  console.log(`Logged in as ${client.user.tag} 3 min up`);
+  console.log(`✅Logged in as ${client.user.tag}, 3 min up`);
   const channelId = '1380085584394981428'; // change this
   const interval = 1 * 60 * 1000; // 1 minutes in milliseconds
   var i = 0;
@@ -45,7 +45,7 @@ client.once('ready', () => {
 });
 
 client.once('ready', () => {
-  console.log(`Logged in as ${client.user.tag} 10 min up`);
+  console.log(`✅Logged in as ${client.user.tag}, 10 min up`);
   const channelId = '1380085584394981428'; // change this
   const interval = 10 * 60 * 1000; // 10 minutes in milliseconds
   var i = 0;
