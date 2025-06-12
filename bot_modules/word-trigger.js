@@ -31,10 +31,6 @@ client.on("messageCreate", message => {
   if (message.content === "test") {
     message.channel.send("wes is running from vscode!");
   }
-
-    if (message.content === "t ping") {
-    message.channel.send("<@970610501589544991>");
-  }
   
     //VARIABLES FOR THIS REGION ONLY
   const msgContent = message.content.toLowerCase();
