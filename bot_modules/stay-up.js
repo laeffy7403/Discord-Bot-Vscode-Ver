@@ -65,17 +65,17 @@ client.once('ready', () => {
 
 
 
-client.on("messageCreate", message => {
-  // Only respond in the specific channel
-  if (message.channel.id !== '1380085584394981428') return;
+// client.on("messageCreate", message => {
+//   // Only respond in the specific channel
+//   if (message.channel.id !== '1380085584394981428') return;
   
-  const msgContent = message.content.toLowerCase();
-  var signal = ["wes", "monika", "m", "o", "n", "i", "k", "a", "w", "e", "s", "-"];
+//   const msgContent = message.content.toLowerCase();
+//   var signal = ["wes", "monika", "m", "o", "n", "i", "k", "a", "w", "e", "s", "-"];
   
-  if (signal.some(trigger => msgContent.includes(trigger))) {
-    message.channel.send("monika monika monika monika monika monika!");
-  }
-});
+//   if (signal.some(trigger => msgContent.includes(trigger))) {
+//     message.channel.send("monika monika monika monika monika monika!");
+//   }
+// });
 
 
 
