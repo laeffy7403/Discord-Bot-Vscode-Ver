@@ -25,43 +25,43 @@ const client = new Discord.Client({
 // });
 
 
-client.once('ready', () => {
-  console.log(`✅Logged in as ${client.user.tag}, 3 min up`);
-  const channelId = '1380085584394981428'; // change this
-  const interval = 1 * 60 * 1000; // 1 minutes in milliseconds
-  var i = 0;
-  var br = '----------------------------------------';
+// client.once('ready', () => {
+//   console.log(`✅Logged in as ${client.user.tag}, 3 min up`);
+//   const channelId = '1380085584394981428'; // change this
+//   const interval = 1 * 60 * 1000; // 1 minutes in milliseconds
+//   var i = 0;
+//   var br = '----------------------------------------';
   
-  setInterval(() => {
-    const channel = client.channels.cache.get(channelId);
-    if (channel) {
-      i++;
-      channel.send(`${br} wes - 1min counter: **${i}** `);
-      channel.send(`monika wes -`);
-    } else {
-      console.log('Channel not found.');
-    }
-  }, interval);
-});
+//   setInterval(() => {
+//     const channel = client.channels.cache.get(channelId);
+//     if (channel) {
+//       i++;
+//       channel.send(`${br} wes - 1min counter: **${i}** `);
+//       channel.send(`monika wes -`);
+//     } else {
+//       console.log('Channel not found.');
+//     }
+//   }, interval);
+// });
 
-client.once('ready', () => {
-  console.log(`✅Logged in as ${client.user.tag}, 10 min up`);
-  const channelId = '1380085584394981428'; // change this
-  const interval = 10 * 60 * 1000; // 10 minutes in milliseconds
-  var i = 0;
-  var br = '----------------------------------------';
+// client.once('ready', () => {
+//   console.log(`✅Logged in as ${client.user.tag}, 10 min up`);
+//   const channelId = '1380085584394981428'; // change this
+//   const interval = 10 * 60 * 1000; // 10 minutes in milliseconds
+//   var i = 0;
+//   var br = '----------------------------------------';
   
-  setInterval(() => {
-    const channel = client.channels.cache.get(channelId);
-    if (channel) {
-      i++;
-      channel.send(`${br}monika - 10min counter: **${i}** `);
-      channel.send(`monika wes -`);
-    } else {
-      console.log('Channel not found.');
-    }
-  }, interval);
-});
+//   setInterval(() => {
+//     const channel = client.channels.cache.get(channelId);
+//     if (channel) {
+//       i++;
+//       channel.send(`${br}monika - 10min counter: **${i}** `);
+//       channel.send(`monika wes -`);
+//     } else {
+//       console.log('Channel not found.');
+//     }
+//   }, interval);
+// });
 
 
 
