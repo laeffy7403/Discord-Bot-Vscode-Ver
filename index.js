@@ -106,10 +106,10 @@ client.on("messageCreate", message => {
 client.on('interactionCreate', async interaction => {
   if (!interaction.isCommand()) return;
 
-  if (interaction.commandName === 'ping') {
-    await interaction.reply('Pong!');
-    await interaction.followUp('Pong again!');
-  }
+  // if (interaction.commandName === 'ping') {
+  //   await interaction.reply('Pong!');
+  //   await interaction.followUp('Pong again!');
+  // }
 });
 
 client.login(process.env.DIS_TOKEN)
