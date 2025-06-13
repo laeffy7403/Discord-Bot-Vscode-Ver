@@ -39,19 +39,45 @@ require('./bot_modules/stay-up.js');
 client.on("messageCreate", message => {
   if (message.author.bot) return;
 
+
   const msgContent = message.content.toLowerCase();
   const botMsg = `\n\n**(I am a bot, and this action was performed automatically. Please contact ${creator.tag} the moderators of this sub if you have any questions or concerns.)**`;
 
       // Check for help command
-    var manualToggle = "keyword control toggle[need access from the server]\n[t on] - enable keyword control to prevent word triggering off with certain word.(shut down)\n[t off] - disable keyword control allow certain word to be trigger through texting in the chat.\n[t stat] - check the status of keyword contorl in the server.\n\n**Note:** moderator respond with care msg to stop negative or bad mind spread among to people, when sensitive word like 'wtf' 'dick' and more. As the mod find it to be sentitive it will trigger the care msg."; 
-    var manualAI = "\n\n\nAI command [not in the toggle scope can be call when keyword control is on]\n[@wes {your message}] - use this command to trigger the AI to respond to your message.\n\n**Note:** The AI is using outdated data from 2022-2021, so it may not have the latest information. Beside long text msg might takes ahwile to respond due to latancy.";
-    var manualPhoto = "\n\n\nPhoto Tracker Commands [not in the toggle scope can be call when keyword control is on]\n[mystat] - View your photo upload statistics.\n[photostat @user] - View photo statistics for a specific user.\n[toposter] - View the top photo contributors leaderboard.\n[serverstat] - View overall server photo statistics.\n[channelstat] - View photo statistics for current channel.\n\n**Note:** Bot automatically tracks image uploads!"
+    var manualToggle = "**Keyword Control Toggle Commands**[need access from the server]\n"+
+    "`t on` - enable keyword control to prevent word triggering off with certain word.(shut down)\n"+
+    "`t off` - disable keyword control allow certain word to be trigger through texting in the chat.\n"+
+    "`t stat` - check the status of keyword contorl in the server."+
+    "\n\n**Note:** Moderator respond with care msg to stop negative or bad mind spread among to people, when sensitive word like 'wtf' 'dick' and more. As the mod find it to be sentitive it will trigger the care msg.\n"; 
+    
+    var manualAI = "\n\n**AI Commands** [not in the toggle scope can be call when keyword control is on]\n"+
+    "`@wes {your message}` - Use this command to chat with AI.\n"+
+    "`ai--clearmemo` - Clear your AI chat history.\n"+
+    "`ai--memostat` - View your conversation statistics.\n"+
+    "\n**Note:** The AI is using outdated data from 2022-2021, so it may not have the latest information. Beside long text msg might takes ahwile to respond due to latancy.\n";
+    
+    var manualPhoto = "\n\n**Photo Tracker Commands** [not in the toggle scope can be call when keyword control is on]\n"+
+    "`mystat` - View your photo upload statistics.\n"+
+    "`photostat @user` - View photo statistics for a specific user.\n"+
+    "`toposter` - View the top photo contributors leaderboard.\n"+
+    "`serverstat` - View overall server photo statistics.\n"+
+    "`channelstat` - View photo statistics for current channel.\n"+
+    "\n**Note:** Bot automatically tracks image uploads in the channel, condition is the bot must stay online \n"
+
+    var manualGeneral = "\n\nGeneral Commands [not in the toggle scope can be call when keyword control is on]\n"+
+    "`uptime` - Check how long the bot has been online.\n"
+ 
       if (msgContent.includes("help")) {
-      message.channel.send(" ```" + manualToggle + manualAI + manualPhoto + "```" + botMsg);
+      message.reply(manualToggle + manualAI + manualPhoto + manualGeneral + botMsg);
     }
-  
+
+});
 
 
+
+
+client.on("messageCreate", message => {
+  if (message.author.bot) return;
 //   const msgContent = message.content.toLowerCase();
 //   const botMsg = "\n\n**(I am a bot, and this action was performed automatically. Please contact the moderators of this server if you have any questions or concerns.)**";
   

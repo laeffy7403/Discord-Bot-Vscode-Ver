@@ -142,7 +142,7 @@ client.on("messageCreate", async (message) => {
   const userName = message.author.username;
   
   // Check for memory management commands
-  if (message.content.toLowerCase().includes('clear memory') || message.content.toLowerCase().includes('forget me')) {
+  if (message.content.toLowerCase().includes('ai--clearmemo')) {
     try {
       const deletedCount = await clearConversationHistory(userId);
       return await message.reply(`🧠 Memory cleared! Deleted ${deletedCount} messages. I'll start fresh with you.`);
@@ -153,7 +153,7 @@ client.on("messageCreate", async (message) => {
   }
   
   // Check for memory stats command
-  if (message.content.toLowerCase().includes('memory stats') || message.content.toLowerCase().includes('my stats')) {
+  if (message.content.toLowerCase().includes('ai--memostat')) {
     try {
       const stats = await getConversationStats(userId);
       const firstDate = stats.first_message ? new Date(stats.first_message).toLocaleDateString() : 'Never';
