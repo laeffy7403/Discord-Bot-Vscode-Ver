@@ -129,7 +129,7 @@ client.on("messageCreate", message => {
   }
 
 
-  var keyGroupB = ["lean", "wow", "damn", "dem", "lol", "lmao", "waw"];
+  var keyGroupB = ["lean", "wow", "damn", "dem", "lol", "lmao", "waw", "coke"];
   if (keyGroupB.some(trigger => msgContent.includes(trigger))) {
     message.channel.send("It literally just cola you piece of shit. There's no cough syrup or anything. What the fuck is wrong with you. How fucking desperate are you to seem cool that you decide you want to force a `joke` about a child consuming drugs. Which would be funny except nothing in this scene implies that they're doing drugs or a drug stand-in. You just saw a can of soda and the two neurons in your head fired for the first time in a week, and you jumped into the comments to screech lEAn and spam purple emojis like a clown bastard. You people are the reason art is dying. Fuck you. " + botMsg);
   }

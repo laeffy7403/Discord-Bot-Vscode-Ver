@@ -1,8 +1,10 @@
 const express = require("express")
 const app = express();
 
-app.listen(3001, () => {
-  console.log(`wes is running!`);
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, () => {
+  console.log(`wes is running on port ${PORT}!`);
 })
 
 app.get("/", (req, res) => {res.send("wes is running!");})

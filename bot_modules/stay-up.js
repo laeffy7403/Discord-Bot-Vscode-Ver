@@ -9,7 +9,7 @@ const UP_TIME_1 = 10;
 const BR = '----------------------------------------';
 
 client.once('ready', () => {
-  console.log(`Logged in as ${client.user.tag} 6 min up`);
+  console.log(`Logged in as ${client.user.tag} ${UP_TIME_1} min up`);
   const channelId = '1380085584394981428'; // change this
   const interval = UP_TIME_1 * 60 * 1000; // 10 minutes in milliseconds
   var i = 0;
