@@ -1,6 +1,5 @@
 //AI SECTION
 require("dotenv").config();
-// const Discord = require("discord.js");
 const { Intents } = require("discord.js");
 const fetch = require("node-fetch");
 const Discord = require("discord.js")
