@@ -66,6 +66,14 @@ client.on("messageCreate", message => {
 
     var manualGeneral = "\n\nGeneral Commands [not in the toggle scope can be call when keyword control is on]\n"+
     "`uptime` - Check how long the bot has been online.\n"
+
+    var updateLog = "\n\n**Update Log**\n"+
+    "`v1.0.0` - Initial release with basic AI chat, keyword control, and photo tracking.\n"+
+    "`v1.1.0` - Added uptime command and improved photo tracking features.\n"+
+    "`v1.2.0` - Introduced memory management commands for AI and enhanced keyword control.\n"+
+    "- **Per-user storage** - Each user has their own conversation history\n"+
+    "- **Automatic cleanup** - Limits to last 20 messages per user"
+
  
       if (msgContent.includes("help")) {
       message.reply(manualToggle + manualAI + manualPhoto + manualGeneral + botMsg);

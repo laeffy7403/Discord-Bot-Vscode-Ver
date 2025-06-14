@@ -44,7 +44,7 @@ const UP_TIME_1 = 10;
 const BR = '----------------------------------------';
 
 client.once('ready', () => {
-  console.log(`Logged in as ${client.user.tag} ${UP_TIME_1} min up`);
+  console.log(`Logged in as ${client.user.tag} ${UP_TIME_1} min counter up`);
   const channelId = '1380085584394981428';
   const interval = UP_TIME_1 * 60 * 1000; // 10 minutes in milliseconds
   var i = 0;
@@ -63,15 +63,15 @@ client.once('ready', () => {
 
 //Pinging alt-bot every 30 seconds 
 client.once('ready', () => {
-  console.log(`✅Logged in as ${client.user.tag}, 3 min up`);
+  console.log(`✅Logged in as ${client.user.tag}, 30sec pinging up`);
   const channelId = '1380085584394981428'; 
   const interval = 30 * 1000; // 30 sec in milliseconds
 
   setInterval(() => {
     const channel = client.channels.cache.get(channelId);
     if (channel) {
-      // channel.send(`${BR} wes - 1min counter: **${i}** `);
       channel.send(`<@970610501589544991>`);
+      channel.send(`<@998495427026493501>`);
     } else {
       console.log('Channel not found.');
     }
