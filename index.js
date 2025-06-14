@@ -79,9 +79,9 @@ client.on("messageCreate", message => {
       message.reply(manualToggle + manualAI + manualPhoto + manualGeneral + botMsg);
     }
 
-    if (msgContent.includes("help")) {
-      message.reply(`Use `+`--help`+` to list available commands! ${botMsg}`);
-    }
+    // if (msgContent.includes("help")) {
+    //   message.reply(`Use `+`--help`+` to list available commands! ${botMsg}`);
+    // }
 
 });
 

@@ -8,7 +8,7 @@ const client = new Discord.Client({
 client.on('messageCreate', message => {
     if (message.author.bot) return; // Ignore bot messages
     
-    if (message.content.toLowerCase() === 'uptime') {
+    if (message.content.toLowerCase() === '-uptime') {
         // Get uptime in milliseconds
         const uptime = process.uptime() * 1000;
         
