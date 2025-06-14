@@ -38,7 +38,7 @@ client.on("messageCreate", message => {
 
     // Check for simple toggle commands
     //OPTION 1: TOGGLE ACCESS BASED ON SERVER PERMISSIONS
-  // if (msgContent === "t on") {
+  // if (msgContent === "-ton") {
   //   // Check if user has permission to manage messages
   //   if (!message.member.permissions.has("MANAGE_MESSAGES")) {
   //     message.reply("❌ You need 'Manage Messages' permission to control keyword triggering.");
@@ -51,7 +51,7 @@ client.on("messageCreate", message => {
   //   return;
   // }
   
-  // if (msgContent === "t off") {
+  // if (msgContent === "-toff") {
   //   // Check if user has permission to manage messages
   //   if (!message.member.permissions.has("MANAGE_MESSAGES")) {
   //     message.reply("❌ You need 'Manage Messages' permission to control keyword triggering.");
@@ -66,14 +66,14 @@ client.on("messageCreate", message => {
   
 
   //OPTION 2: TOGGLE ACCESS BASED WITHOUT SERVER PERMISSIONS
-    if (msgContent === "t on") {
+    if (msgContent === "-ton") {
     const guildId = message.guild.id;
     keywordToggleStates.set(guildId, true);
     message.reply("✅ Keyword Control is now **enabled** for this server.");
     return;
   }
  
-  if (msgContent === "t off") {
+  if (msgContent === "-toff") {
     const guildId = message.guild.id;
     keywordToggleStates.set(guildId, false);
     message.reply("❌ Keyword Control is now **disabled** for this server.");
@@ -81,7 +81,7 @@ client.on("messageCreate", message => {
   }
   
   // Check status command
-  if (msgContent === "t stat") {
+  if (msgContent === "-tstat") {
     const guildId = message.guild.id;
     const isEnabled = getKeywordToggleState(guildId);
     const status = isEnabled ? "enabled" : "disabled";
