@@ -44,19 +44,19 @@ client.on("messageCreate", message => {
   const botMsg = `\n\n**(I am a bot, and this action was performed automatically. Please contact ${creator.tag} the moderators of this sub if you have any questions or concerns.)**`;
 
       // Check for help command
-    var manualToggle = "**Keyword Control Toggle Commands**[need access from the server]\n"+
+    var manualToggle = "**# Keyword Control Toggle Commands**[need access from the server]\n"+
     "`-ton` - enable keyword control to prevent word triggering off with certain word.(shut down)\n"+
     "`-toff` - disable keyword control allow certain word to be trigger through texting in the chat.\n"+
     "`-tstat` - check the status of keyword contorl in the server."+
     "\n\n**Note:** Moderator respond with care msg to stop negative or bad mind spread among to people, when sensitive word like 'wtf' 'dick' and more. As the mod find it to be sentitive it will trigger the care msg.\n"; 
     
-    var manualAI = "\n\n**AI Commands** [not in the toggle scope can be call when keyword control is on]\n"+
+    var manualAI = "\n\n**# AI Commands** [not in the toggle scope can be call when keyword control is on]\n"+
     "`@wes {your message}` - Use this command to chat with AI.\n"+
     "`ai--clearmemo` - Clear your AI chat history.\n"+
     "`ai--memostat` - View your conversation statistics.\n"+
     "\n**Note:** The AI is using outdated data from 2022-2021, so it may not have the latest information. Beside long text msg might takes ahwile to respond due to latancy.\n";
     
-    var manualPhoto = "\n\n**Photo Tracker Commands** [not in the toggle scope can be call when keyword control is on]\n"+
+    var manualPhoto = "\n\n**# Photo Tracker Commands** [not in the toggle scope can be call when keyword control is on]\n"+
     "`-mystat` - View your photo upload statistics.\n"+
     "`-photostat @user` - View photo statistics for a specific user.\n"+
     "`-toposter` - View the top photo contributors leaderboard.\n"+
@@ -64,7 +64,7 @@ client.on("messageCreate", message => {
     "`-channelstat` - View photo statistics for current channel.\n"+
     "\n**Note:** Bot automatically tracks image uploads in the channel, condition is the bot must stay online \n"
 
-    var manualGeneral = "\n\nGeneral Commands [not in the toggle scope can be call when keyword control is on]\n"+
+    var manualGeneral = "\n\n# General Commands [not in the toggle scope can be call when keyword control is on]\n"+
     "`-uptime` - Check how long the bot has been online.\n"
 
     var updateLog = "\n\n**Update Log**\n"+
@@ -79,9 +79,9 @@ client.on("messageCreate", message => {
       message.reply(manualToggle + manualAI + manualPhoto + manualGeneral + botMsg);
     }
 
-    // if (msgContent.includes("help")) {
-    //   message.reply(`Use `+`--help`+` to list available commands! ${botMsg}`);
-    // }
+    if (msgContent === "!help" || msgContent === "/help") {
+      message.reply(`Use `+`--help`+` to list available commands! ${botMsg}`);
+    }
 
 });
 
