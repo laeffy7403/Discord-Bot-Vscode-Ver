@@ -17,3 +17,6 @@ Thumbs.db
 # Replit files (since you got replit.nix)
 .replit
 replit.nix
+
+# discord info
+/data

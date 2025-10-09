@@ -1,16 +1,21 @@
 require("dotenv").config();
 const { Intents } = require("discord.js");
 const Discord = require("discord.js");
+// const fs = require("fs-extra");
+// const moment = require("moment");
+// const axios = require("axios");
 
 const client = new Discord.Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.MESSAGE_CONTENT, Discord.Intents.FLAGS.GUILD_MEMBERS]
 });
+
 
 // When the client is ready
 client.once('ready', c => {
   console.log(`Ready! Logged in as ${c.user.tag}`);
   console.log('Bot is exposing user IDs for educational purposes');
 });
+
 
 // Message create event
 client.on('messageCreate', async msg => {

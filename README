@@ -1,15 +1,35 @@
-I have two repo for this discord ai
-1 is for replit side, which kinda like a cloud ide.
-2 is for vscode, which is locally.
+2025 Oct 9th, 4:15 PM
+Version 2 – Vanilla User Tracker
 
-WHY need two repo for one project?
-replit has some prepare tools like 'secret' that keep sensitive information like token
-BUT in vsccode it has no such tools (or maybe extra extension, idk, never try) which WE have to create our own 'secret' tools manually that keep our token safely in .env
 
-<!-- Beside, different runtime port is applied to each side 3000(vscode) and 3001(replit) -->
 
-<!-- Replit - use 3001 runtime (something happen in the replit bash and switching to 3001 is a tempoary usecase for port)
-Vscode - use 3000 runtime (when i push from replit to github the runtime is 3001 and some err happened when i pulled down to vsccode because of the 3001 i pushed previously on replit. So i switched the runtime back to 3000 port and it work again.) -->
+Why Two Repositories?
 
-vscode for experimenting in local machine (fast)
-replit for actual deployment 
+Replit provides built-in tools like “Secrets”, which securely store sensitive data such as tokens.
+VS Code, on the other hand, doesn’t have this feature by default (unless additional extensions are installed).
+Therefore, in VS Code, I manually set up a .env file to safely store tokens and other confidential information.
+
+
+
+Runtime Differences
+
+Each environment uses a different runtime port:
+
+Replit: Port 3001 (due to certain bash or runtime conditions; this was a temporary setup).
+
+VS Code: Port 3000 (reverted after encountering errors caused by pushing Replit’s 3001 configuration to GitHub and then pulling it back locally).
+
+
+
+Purpose of Each Environment
+
+VS Code: For fast, local experimentation and testing.
+
+Replit: For actual deployment and online operation.
+
+
+I currently maintain two separate repositories for this Discord AI project:
+
+Replit Repository – hosted on Replit (a cloud-based IDE).
+
+VS Code Repository – used locally on my computer.
