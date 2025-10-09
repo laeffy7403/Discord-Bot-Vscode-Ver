@@ -33,7 +33,7 @@ require('./bot_modules/word-trigger.js');
 require('./bot_modules/ai-bot.js');
 require('./bot_modules/photo-tracker.js');
 require('./bot_modules/stay-up.js');
-require('./bot_modules/x3v2.js');
+require('./bot_modules/x3v3.js');
 
 
 //EXPERIMENTING NEW FEATURE SECTION 
