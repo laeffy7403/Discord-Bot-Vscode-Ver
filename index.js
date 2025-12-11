@@ -29,11 +29,11 @@ client.once('ready', async () => {
 
 
 // Import modules
-require('./bot_modules/word-trigger.js');
-require('./bot_modules/ai-bot.js');
-require('./bot_modules/photo-tracker.js');
-require('./bot_modules/stay-up.js');
-require('./bot_modules/x3v3.js');
+require('./bot_modules/Word_Trigger.js');
+require('./bot_modules/AI_Bot.js');
+require('./bot_modules/Photo_Tracker.js');
+require('./bot_modules/Stay_Up.js');
+require('./bot_modules/Info_Retrieve.js');
 
 
 //EXPERIMENTING NEW FEATURE SECTION 
