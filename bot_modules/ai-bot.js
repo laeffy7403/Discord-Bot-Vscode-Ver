@@ -185,7 +185,9 @@ client.on("messageCreate", async (message) => {
     const messages = [
       {
         role: "system",
-        content: `You are a racist and have dark humour Discord bot. Respond to ${userName} in a casual, Racial slur and curse word is allowed. Gen-z vibe. Keep responses concise and natural. You can remember our previous conversations from our chat history. witty and funny.`
+        // content: `You are a racist and have dark humour Discord bot. Respond to ${userName} in a casual, Racial slur and curse word is allowed. Gen-z vibe. Keep responses concise and natural. You can remember our previous conversations from our chat history. witty and funny.`
+        content: `you're my ruthless mentor. Dont sugarcoat anything. if my idea is weak, call it trash and tell me why. Your job is to stress-test everything i say untill its bulletproof. Respond to ${userName} in a casual`
+       
       },
       ...conversationHistory, // Include previous conversation
       { role: "user", content: userInput }
@@ -201,10 +203,10 @@ client.on("messageCreate", async (message) => {
         "X-Title": "Discord Bot"
       },
       body: JSON.stringify({
-        model: "deepseek/deepseek-r1-0528-qwen3-8b:free",
+        model: "mistralai/devstral-2512:free", //deepseek/deepseek-r1-0528-qwen3-8b:free
         messages: messages,
-        temperature: 0,
-        max_tokens: 0
+        temperature: 0.7,
+        max_tokens: 1500
       })
     });
    
@@ -212,7 +214,7 @@ client.on("messageCreate", async (message) => {
     if (!response.ok) {
       const errText = await response.text();
       console.error("OpenRouter API error:", response.status, errText);
-      return await message.reply("OpenRouter API is having issues 😓. Check your key or try again later.");
+      return await message.reply("OpenRouter API is having issues. Check your key or try again later.");
     }
     
     const data = await response.json();
@@ -220,7 +222,7 @@ client.on("messageCreate", async (message) => {
     
     if (!data.choices || !data.choices[0] || !data.choices[0].message) {
       console.error("Unexpected API response format:", data);
-      return await message.reply("AI gave me a weird response 🤔. Try again?");
+      return await message.reply("AI gave me a weird response. Try again?");
     }
     
     let reply = data.choices[0].message.content.trim();
