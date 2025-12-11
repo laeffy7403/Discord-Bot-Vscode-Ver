@@ -34,6 +34,7 @@ require('./bot_modules/AI_Bot.js');
 require('./bot_modules/Photo_Tracker.js');
 require('./bot_modules/Stay_Up.js');
 require('./bot_modules/Info_Retrieve.js');
+require('./bot_modules/Music.js');
 
 
 //EXPERIMENTING NEW FEATURE SECTION 
