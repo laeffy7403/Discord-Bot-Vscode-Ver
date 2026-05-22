@@ -1,41 +1,136 @@
-2025 Dec 11th
--switch model from qwen to mistralai (shit tier model) 
--added new module Music.js lsiten to crack music from soundcloud
--installed tons of unfamiliar package to get this module work
+# Discord Bot (VS Code Version)
 
+A multi-module Discord bot built with Discord.js v13, featuring AI chat, music playback, photo tracking, keyword triggers, and server utilities.
 
-2025 Oct 9th, 4:15 PM
-Version 2 – Vanilla User Tracker
+## Features
 
+| Module | Description |
+|--------|-------------|
+| **AI Bot** | Conversational AI with per-user memory (SQLite), powered by OpenRouter |
+| **Music** | Play audio from YouTube, Spotify, and SoundCloud in voice channels |
+| **Photo Tracker** | Automatically tracks and stats image uploads per user/channel |
+| **Word Trigger** | Responds to keywords with copypasta messages (toggleable per server) |
+| **Info Retrieve** | Server/user info utilities and data export commands |
+| **Stay Up** | Periodic pings to keep the bot alive on free hosting |
 
+---
 
-Why Two Repositories?
+## Prerequisites
 
-Replit provides built-in tools like “Secrets”, which securely store sensitive data such as tokens.
-VS Code, on the other hand, doesn’t have this feature by default (unless additional extensions are installed).
-Therefore, in VS Code, I manually set up a .env file to safely store tokens and other confidential information.
+- [Node.js](https://nodejs.org/) v22LTS
+- A Discord bot token ([Discord Developer Portal](https://discord.com/developers/applications))
+- An [OpenRouter](https://openrouter.ai/) API key (for AI features)
 
+---
 
+## Installation
 
-Runtime Differences
+```bash
+git clone https://github.com/laeffy7403/Discord-Bot-Vscode-Ver.git
+cd Discord-Bot-Vscode-Ver
+npm install
+```
 
-Each environment uses a different runtime port:
+Create a `.env` file in the root directory:
 
-Replit: Port 3001 (due to certain bash or runtime conditions; this was a temporary setup).
+```env
+DIS_TOKEN=your_discord_bot_token_here
+OPENROUTER_API_KEY=your_openrouter_api_key_here
+```
 
-VS Code: Port 3000 (reverted after encountering errors caused by pushing Replit’s 3001 configuration to GitHub and then pulling it back locally).
+Start the bot:
 
+```bash
+node launch.js
+```
 
+---
 
-Purpose of Each Environment
+## Commands
 
-VS Code: For fast, local experimentation and testing.
+### AI Commands
+| Command | Description |
+|---------|-------------|
+| `@bot <message>` | Chat with the AI (has per-user memory) |
+| `ai--clearmemo` | Clear your AI conversation history |
+| `ai--memostat` | View your conversation statistics |
 
-Replit: For actual deployment and online operation.
+### Music Commands
+*(Must be in a voice channel)*
 
+| Command | Description |
+|---------|-------------|
+| `-play <song/url>` | Play from YouTube, Spotify, or SoundCloud |
+| `-skip` | Skip the current song |
+| `-stop` | Stop and clear the queue |
+| `-pause` | Pause playback |
+| `-resume` | Resume playback |
+| `-queue` | Show the current queue |
+| `-nowplaying` | Show info about the current song |
+| `-volume <0–100>` | Set the volume |
+| `-ask <question>` | Ask the AI assistant anything |
 
-I currently maintain two separate repositories for this Discord AI project:
+### Photo Tracker Commands
+| Command | Description |
+|---------|-------------|
+| `-mystat` | Your photo upload stats |
+| `-photostat @user` | Stats for a specific user |
+| `-toposter` | Leaderboard of top photo contributors |
+| `-serverstat` | Overall server photo statistics |
+| `-channelstat` | Photo stats for the current channel |
 
-Replit Repository – hosted on Replit (a cloud-based IDE).
+### Keyword Control Commands
+| Command | Description |
+|---------|-------------|
+| `-ton` | Enable keyword trigger responses |
+| `-toff` | Disable keyword trigger responses |
+| `-tstat` | Check current keyword toggle status |
 
-VS Code Repository – used locally on my computer.
+### General
+| Command | Description |
+|---------|-------------|
+| `--help` | List all available commands |
+| `-uptime` | Show how long the bot has been online |
+
+---
+
+## Project Structure
+
+```
+├── launch.js               # Entry point — loads all modules
+├── debug.js                # Standalone API connection tester
+├── package.json
+├── .env                    # Secret tokens (not committed)
+└── bot_modules/
+    ├── f_ai_bot.js         # AI chat with SQLite memory
+    ├── f_music.js          # Music playback (YT/Spotify/SoundCloud)
+    ├── f_info_retrieve.js  # Server/user info and data export
+    ├── m_photo_tracker.js  # Image upload tracking
+    ├── m_stay_up.js        # Keep-alive pinger
+    └── m_word_trigger.js   # Keyword trigger responses
+```
+
+---
+
+## Notes
+
+- This is the **VS Code (local)** version. A separate Replit version exists for cloud deployment.
+- VS Code version uses port `3000`; Replit version uses port `3001`.
+- AI memory is stored in `conversations.db` (SQLite, auto-created on first run).
+- Photo stats are stored in `photos.db` (SQLite, auto-created on first run).
+
+---
+
+## Debugging
+
+To test your API key and bot token connection without starting the full bot:
+
+```bash
+node debug.js
+```
+
+---
+
+## License
+
+ISC
