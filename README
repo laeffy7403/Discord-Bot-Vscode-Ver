@@ -17,7 +17,7 @@ A multi-module Discord bot built with Discord.js v13, featuring AI chat, music p
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/) v16+
+- [Node.js](https://nodejs.org/) v22LTS
 - A Discord bot token ([Discord Developer Portal](https://discord.com/developers/applications))
 - An [OpenRouter](https://openrouter.ai/) API key (for AI features)
 
