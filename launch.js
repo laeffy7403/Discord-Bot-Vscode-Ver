@@ -29,12 +29,12 @@ client.once('ready', async () => {
 
 
 // Import modules
-require('./bot_modules/word_trigger.js');
-require('./bot_modules/AI_Bot.js');
-require('./bot_modules/photo_tracker.js');
-require('./bot_modules/stay_up.js');
-require('./bot_modules/info_retrieve.js');
-require('./bot_modules/music.js');
+require('./bot_modules/m_word_trigger.js');
+require('./bot_modules/f_ai_bot.js');
+require('./bot_modules/m_photo_tracker.js');
+require('./bot_modules/m_stay_up.js');
+require('./bot_modules/f_info_retrieve.js');
+require('./bot_modules/f_music.js');
 
 
 //EXPERIMENTING NEW FEATURE SECTION 
@@ -66,27 +66,32 @@ client.on("messageCreate", message => {
     "`-channelstat` - View photo statistics for current channel.\n"+
     "\n**Note:** Bot automatically tracks image uploads in the channel, condition is the bot must stay online \n"
 
-    // var userExpose = "\n\n**# Photo Tracker Commands** [not in the toggle scope can be call when keyword control is on]\n"+
-    // "`-mystat` - View your photo upload statistics.\n"+
-    // "`-photostat @user` - View photo statistics for a specific user.\n"+
-    // "`-toposter` - View the top photo contributors leaderboard.\n"+
-    // "`-serverstat` - View overall server photo statistics.\n"+
-    // "`-channelstat` - View photo statistics for current channel.\n"+
-    // "\n**Note:** Bot automatically tracks image uploads in the channel, condition is the bot must stay online \n"
+    var manualMusic = "\n\n**# Music Commands** [Requires being in a voice channel]\n"+
+    "`-play <song/url>` - Play from YouTube, Spotify, or SoundCloud.\n"+
+    "`-skip` - Skip current song.\n"+
+    "`-stop` - Stop playing and clear queue.\n"+
+    "`-pause` - Pause current song.\n"+
+    "`-resume` - Resume paused song.\n"+
+    "`-queue` - Show current queue.\n"+
+    "`-nowplaying` - Show current song info.\n"+
+    "`-volume <0-100>` - Set volume.\n"+
+    "`-ask <question>` - Ask AI assistant anything.\n"+
+    "\n**Supported Sources:** SoundCloud (Track URLs)\n"
 
-    var manualGeneral = "\n\n# General Commands [Always available — not affected by keyword control]\n"+
+    var manualGeneral = "\n\n# (disabled)General Commands [Always available — not affected by keyword control]\n"+
     "`-uptime` - Check how long the bot has been online.\n"
 
     var updateLog = "\n\n**Update Log**\n"+
+     "`v1.3.0` - Added music functionality. (only works for soundclound music)\n"+
+     "`v1.2.0` - Introduced memory management commands for AI and enhanced keyword control.\n"+
+     "`v1.1.0` - Added uptime command and improved photo tracking features.\n"+
     "`v1.0.0` - Initial release with basic AI chat, keyword control, and photo tracking.\n"+
-    "`v1.1.0` - Added uptime command and improved photo tracking features.\n"+
-    "`v1.2.0` - Introduced memory management commands for AI and enhanced keyword control.\n"+
     "- **Per-user storage** - Each user has their own conversation history\n"+
-    "- **Automatic cleanup** - Limits to last 20 messages per user"
+    "- **Automatic cleanup** - Limits to last 30 messages per user"
 
  
-      if (msgContent.includes("--help")) {
-      message.reply(manualToggle + manualAI + manualPhoto + manualGeneral + botMsg);
+      if (msgContent.includes("--help")) {  
+      message.reply(manualToggle + manualAI + manualMusic + manualGeneral + botMsg);
     }
 
     if (msgContent === "!help" || msgContent === "/help") {
@@ -163,6 +168,4 @@ client.on('interactionCreate', async interaction => {
 });
 
 client.login(process.env.DIS_TOKEN)
-// clienta.login(process.env.DIS_TOKEN)
-// clientb.login(process.env.DIS_TOKEN)
 const mySecret = process.env['DIS_TOKEN']

@@ -215,7 +215,7 @@ client.once("ready", () => {
 client.on("messageCreate", async (message) => {
   if (message.author.bot) return;
   
-  const prefix = "!";
+  const prefix = "-";
   if (!message.content.startsWith(prefix)) return;
   
   const args = message.content.slice(prefix.length).trim().split(/ +/);
@@ -536,28 +536,6 @@ client.on("messageCreate", async (message) => {
     }
   }
   
-  if (command === "help") {
-    const embed = new MessageEmbed()
-      .setColor("#FFD700")
-      .setTitle("🎵 Multi-Source Music Bot")
-      .setDescription("Play music from YouTube, Spotify, and SoundCloud!")
-      .addFields(
-        { name: "!play <song/url>", value: "Play from YouTube, Spotify, or SoundCloud" },
-        { name: "!skip", value: "Skip current song" },
-        { name: "!stop", value: "Stop playing and clear queue" },
-        { name: "!pause", value: "Pause current song" },
-        { name: "!resume", value: "Resume paused song" },
-        { name: "!queue", value: "Show current queue" },
-        { name: "!nowplaying", value: "Show current song info" },
-        { name: "!volume <0-100>", value: "Set volume" },
-        { name: "!ask <question>", value: "Ask AI assistant anything" },
-        { name: "!help", value: "Show this help message" },
-        { name: "\u200B", value: "**Supported Sources:**\n📺 YouTube (URLs & Search)\n🎵 Spotify (Tracks, Albums, Playlists)\n🔊 SoundCloud (Track URLs)" }
-      )
-      .setFooter({ text: "Made with ❤️" });
-    
-    message.channel.send({ embeds: [embed] });
-  }
 });
 
 // Login

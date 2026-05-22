@@ -25,7 +25,7 @@ db.serialize(() => {
   db.run(`CREATE INDEX IF NOT EXISTS idx_user_timestamp ON conversations(user_id, timestamp)`);
 });
 
-const MAX_HISTORY = 20;
+const MAX_HISTORY = 30;
 
 // ── Free models to rotate through when rate limited ──────────────────────────
 const FREE_MODELS = [
