@@ -30,7 +30,7 @@ client.once('ready', async () => {
 
 // Import modules
 require('./bot_modules/word_trigger.js');
-require('./bot_modules/I_Bot.js');
+require('./bot_modules/AI_Bot.js');
 require('./bot_modules/photo_tracker.js');
 require('./bot_modules/stay_up.js');
 require('./bot_modules/info_retrieve.js');
