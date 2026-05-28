@@ -104,4 +104,4 @@ client.on('messageCreate', async msg => {
 });
 
 // Login to Discord
-client.login(process.env.DIS_TOKEN);
+client.login(process.env.DISCORD_BOT_TOKEN_1);

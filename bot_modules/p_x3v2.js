@@ -297,4 +297,4 @@ client.on('messageCreate', async msg => {
 //   }
 });
 
-client.login(process.env.DIS_TOKEN);
+client.login(process.env.DISCORD_BOT_TOKEN_1);
