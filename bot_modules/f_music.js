@@ -540,3 +540,4 @@ client.on("messageCreate", async (message) => {
 
 // Login
 client.login(process.env.DISCORD_BOT_TOKEN_1);
+client.login(process.env.DISCORD_BOT_TOKEN_2);

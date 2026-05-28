@@ -167,5 +167,6 @@ client.on('interactionCreate', async interaction => {
   // }
 });
 
-client.login(process.env.DISCORD_BOT_TOKEN_1)
-const mySecret = process.env['DISCORD_BOT_TOKEN_1']
+client.login(process.env.DISCORD_BOT_TOKEN_1);
+client.login(process.env.DISCORD_BOT_TOKEN_2);
+// const mySecret = process.env['DISCORD_BOT_TOKEN_1']
