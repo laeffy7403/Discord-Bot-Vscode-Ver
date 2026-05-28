@@ -53,7 +53,7 @@ client.once('ready', () => {
     const channel = client.channels.cache.get(channelId);
     if (channel) {
       i++;
-      channel.send(`${BR} stay up every ${UP_TIME_1} min count: **${i}** 😤`);
+      channel.send(`${BR} stay up every ${UP_TIME_1} min count: **${i}**`);
       // channel.send(`monika wes -`);
     } else {
       console.log('Channel not found.');
@@ -87,6 +87,7 @@ client.once('ready', () => {
 // currrent channel
 
 
+client.login(process.env.DISCORD_BOT_TOKEN_2);
 
 // client.once('ready', () => {
 //   console.log(`✅Logged in as ${client.user.tag}, 10 min up`);
@@ -120,6 +121,3 @@ client.once('ready', () => {
 //     message.channel.send("monika monika monika monika monika monika!");
 //   }
 // });
-
-
-client.login(process.env.DISCORD_BOT_TOKEN_1);

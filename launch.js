@@ -36,6 +36,10 @@ require('./bot_modules/m_stay_up.js');
 require('./bot_modules/f_info_retrieve.js');
 require('./bot_modules/f_music.js');
 
+require('./additional_modules/caller1.js');
+require('./additional_modules/caller2.js');
+require('./additional_modules/caller3.js');
+
 
 //EXPERIMENTING NEW FEATURE SECTION 
 client.on("messageCreate", message => {
@@ -168,5 +172,5 @@ client.on('interactionCreate', async interaction => {
 });
 
 client.login(process.env.DISCORD_BOT_TOKEN_1);
-client.login(process.env.DISCORD_BOT_TOKEN_2);
+// client.login(process.env.DISCORD_BOT_TOKEN_2);
 // const mySecret = process.env['DISCORD_BOT_TOKEN_1']

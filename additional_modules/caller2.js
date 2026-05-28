@@ -86,6 +86,9 @@ client.once('ready', () => {
 // 1509495512775004230
 // currrent channel
 
+client.login(process.env.DISCORD_BOT_TOKEN_3);
+
+
 
 
 // client.once('ready', () => {
@@ -121,5 +124,3 @@ client.once('ready', () => {
 //   }
 // });
 
-
-client.login(process.env.DISCORD_BOT_TOKEN_1);

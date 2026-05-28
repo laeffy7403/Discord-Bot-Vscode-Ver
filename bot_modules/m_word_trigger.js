@@ -9,6 +9,7 @@ let creator;
 client.once('ready', async () => {
   try {
     creator = await client.users.fetch("693111194319323197");
+    // 693111194319323197 old acc
     console.log(`✅Logged in as ${client.user.tag}, Word`);
   } catch (err) {
     console.error("Failed to fetch owner user:", err);

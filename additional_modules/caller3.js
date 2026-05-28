@@ -80,12 +80,14 @@ client.once('ready', () => {
   }, interval);
 });
 
+
 // 1380085584394981428
 // old channel for pinging 
 
 // 1509495512775004230
 // currrent channel
 
+client.login(process.env.DISCORD_BOT_TOKEN_4);
 
 
 // client.once('ready', () => {
@@ -121,5 +123,3 @@ client.once('ready', () => {
 //   }
 // });
 
-
-client.login(process.env.DISCORD_BOT_TOKEN_1);
